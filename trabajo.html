@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOTBALL ELITE | LA TIENDA DEFINITIVA</title>
+    <link rel="icon" href="logo.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Bebas+Neue&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #ff0000;
+            --dark-red: #4a0000;
+            --accent: #ff4d4d;
+            --bg: #050505;
+            --card-grad: linear-gradient(145deg, #111, #000);
+        }
+
+        * { scroll-behavior: smooth; box-sizing: border-box; margin: 0; padding: 0; }
+
+        body { 
+            background-color: var(--bg); 
+            color: #fff; 
+            font-family: 'Space Grotesk', sans-serif; 
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 10% 10%, var(--dark-red), transparent 40%),
+                        radial-gradient(circle at 90% 90%, #111, transparent 40%);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .brand-header {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .brand-header img {
+            max-width: 220px;
+            filter: drop-shadow(0 0 15px rgba(255,0,0,0.5));
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(4rem, 12vw, 8rem);
+            text-transform: uppercase;
+            letter-spacing: -4px;
+            line-height: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn-nav {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 15px 30px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: var(--red);
+            transform: scale(1.05);
+        }
+
+        header h2 {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            margin: 60px 0;
+        }
+
+        .catalog { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px; 
+            max-width: 1400px; 
+            margin: 0 auto 100px; 
+            padding: 0 20px;
+        }
+
+        .product-card { 
+            background: var(--card-grad);
+            border: 1px solid #222;
+            padding: 20px;
+            text-align: center; 
+            transition: 0.4s;
+        }
+
+        .product-card:hover {
+            border-color: var(--red);
+            transform: translateY(-10px);
+        }
+
+        .product-card img { 
+            width: 100%; 
+            height: 300px; 
+            object-fit: contain; 
+        }
+        
+        .product-title { 
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem; 
+            margin-top: 15px;
+        }
+
+        .product-price { 
+            display: block; 
+            font-size: 2.5rem; 
+            font-weight: 900;
+            margin: 10px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn-buy { 
+            background: #fff;
+            color: #000; 
+            border: none;
+            padding: 15px; 
+            font-weight: 900; 
+            cursor: pointer; 
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover {
+            background: var(--red);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .main-nav { flex-direction: column; width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-overlay"></div>
+
+<div class="brand-header">
+    <img src="logo.png" alt="FOOTBALL ELITE">
+</div>
+
+<section class="hero">
+    <h1>FOOTBALL<br>ELITE</h1>
+    <div class="main-nav">
+        <button class="btn-nav" onclick="showCategory('clubes')">CLUBES</button>
+        <button class="btn-nav" onclick="showCategory('paises')">SELECCIONES</button>
+        <button class="btn-nav" onclick="showCategory('otros')">OTROS</button>
+    </div>
+</section>
+
+<div id="section-clubes" style="display: none;">
+    <header><h2>CLUBES</h2></header>
+    <div class="catalog">
+        <div class="product-card"><img src="ac milan.jpeg"><div class="product-title">AC Milan</div><span class="product-price">$100.000</span><button class="btn-buy" onclick="sendToWA('AC Milan')">COMPRAR</button></div>
+        <div class="product-card"><img src="ac milan2.jpeg"><div class="product-title">AC Milan 2</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('AC Milan 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="al-nassr.jpeg"><div class="product-title">Al-Nassr</div><span class="product-price">$75.000</span><button class="btn-buy" onclick="sendToWA('Al-Nassr')">COMPRAR</button></div>
+        <div class="product-card"><img src="arsenal.jpeg"><div class="product-title">Arsenal</div><span class="product-price">$80.000</span><button class="btn-buy" onclick="sendToWA('Arsenal')">COMPRAR</button></div>
+        <div class="product-card"><img src="nacional.jpeg"><div class="product-title">Atlético Nacional</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Atlético Nacional')">COMPRAR</button></div>
+        <div class="product-card"><img src="nacional2.jpeg"><div class="product-title">Atlético Nacional 2</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Atlético Nacional 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="nacional3.jpeg"><div class="product-title">Atlético Nacional 3</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Atlético Nacional 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="barcelona.jpeg"><div class="product-title">Barcelona</div><span class="product-price">$70.000</span><button class="btn-buy" onclick="sendToWA('Barcelona')">COMPRAR</button></div>
+        <div class="product-card"><img src="barcelona2.jpeg"><div class="product-title">Barcelona 2</div><span class="product-price">$70.000</span><button class="btn-buy" onclick="sendToWA('Barcelona 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="barcelona4.jpeg"><div class="product-title">Barcelona 3</div><span class="product-price">$90.000</span><button class="btn-buy" onclick="sendToWA('Barcelona 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="barcelona5.jpeg"><div class="product-title">Barcelona 4</div><span class="product-price">$95.000</span><button class="btn-buy" onclick="sendToWA('Barcelona 4')">COMPRAR</button></div>
+        <div class="product-card"><img src="barcelona6.jpeg"><div class="product-title">Barcelona 5</div><span class="product-price">$95.000</span><button class="btn-buy" onclick="sendToWA('Barcelona 5')">COMPRAR</button></div>
+        <div class="product-card"><img src="barcelona7.jpeg"><div class="product-title">Barcelona 6</div><span class="product-price">$125.000</span><button class="btn-buy" onclick="sendToWA('Barcelona 6')">COMPRAR</button></div>
+        <div class="product-card"><img src="barcelona8.jpeg"><div class="product-title">Barcelona 7</div><span class="product-price">$140.000</span><button class="btn-buy" onclick="sendToWA('Barcelona 7')">COMPRAR</button></div>
+        <div class="product-card"><img src="bayer.jpeg"><div class="product-title">Bayern de Múnich</div><span class="product-price">$85.000</span><button class="btn-buy" onclick="sendToWA('Bayern de Múnich')">COMPRAR</button></div>
+        <div class="product-card"><img src="bayer2.jpeg"><div class="product-title">Bayern de Múnich 2</div><span class="product-price">$80.000</span><button class="btn-buy" onclick="sendToWA('Bayern de Múnich 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="bayer3.jpeg"><div class="product-title">Bayern de Múnich 3</div><span class="product-price">$80.000</span><button class="btn-buy" onclick="sendToWA('Bayern de Múnich 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="boca.jpeg"><div class="product-title">Boca Juniors</div><span class="product-price">$85.000</span><button class="btn-buy" onclick="sendToWA('Boca Juniors')">COMPRAR</button></div>
+        <div class="product-card"><img src="inter milan.jpeg"><div class="product-title">Inter de Milán</div><span class="product-price">$95.000</span><button class="btn-buy" onclick="sendToWA('Inter de Milán')">COMPRAR</button></div>
+        <div class="product-card"><img src="manchester city.jpeg"><div class="product-title">Manchester City</div><span class="product-price">$80.000</span><button class="btn-buy" onclick="sendToWA('Manchester City')">COMPRAR</button></div>
+        <div class="product-card"><img src="manchester united.jpeg"><div class="product-title">Manchester United</div><span class="product-price">$80.000</span><button class="btn-buy" onclick="sendToWA('Manchester United')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios.jpeg"><div class="product-title">Millonarios</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Millonarios')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios10.jpeg"><div class="product-title">Millonarios 10</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 10')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios11.jpeg"><div class="product-title">Millonarios 11</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 11')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios12.jpeg"><div class="product-title">Millonarios 12</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 12')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios13.jpeg"><div class="product-title">Millonarios 13</div><span class="product-price">$105.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 13')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios14.jpeg"><div class="product-title">Millonarios 14</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 14')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios15.jpeg"><div class="product-title">Millonarios 15</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 15')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios16.jpeg"><div class="product-title">Millonarios 16</div><span class="product-price">$165.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 16')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios17.jpeg"><div class="product-title">Millonarios 17</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 17')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios18.jpeg"><div class="product-title">Millonarios 18</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 18')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios2.jpeg"><div class="product-title">Millonarios 2</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios3.jpeg"><div class="product-title">Millonarios 3</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios4.jpeg"><div class="product-title">Millonarios 4</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 4')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios5.jpeg"><div class="product-title">Millonarios 5</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 5')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios6.jpeg"><div class="product-title">Millonarios 6</div><span class="product-price">$165.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 6')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios7.jpeg"><div class="product-title">Millonarios 7</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 7')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios8.jpeg"><div class="product-title">Millonarios 8</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 8')">COMPRAR</button></div>
+        <div class="product-card"><img src="millonarios9.jpeg"><div class="product-title">Millonarios 9</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Millonarios 9')">COMPRAR</button></div>
+        <div class="product-card"><img src="palmeiras.jpeg"><div class="product-title">Palmeiras</div><span class="product-price">$75.000</span><button class="btn-buy" onclick="sendToWA('Palmeiras')">COMPRAR</button></div>
+        <div class="product-card"><img src="psg.jpeg"><div class="product-title">PSG</div><span class="product-price">$90.000</span><button class="btn-buy" onclick="sendToWA('PSG')">COMPRAR</button></div>
+        <div class="product-card"><img src="rayo.jpeg"><div class="product-title">Rayo Vallecano</div><span class="product-price">$70.000</span><button class="btn-buy" onclick="sendToWA('Rayo Vallecano')">COMPRAR</button></div>
+        <div class="product-card"><img src="rayo2.jpeg"><div class="product-title">Rayo Vallecano 2</div><span class="product-price">$70.000</span><button class="btn-buy" onclick="sendToWA('Rayo Vallecano 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTISL8rkXkhABBtrEI5jkI56Gd7YwGZGV7C8A&s"><div class="product-title">Real Madrid</div><span class="product-price">$80.000</span><button class="btn-buy" onclick="sendToWA('Real Madrid')">COMPRAR</button></div>
+        <div class="product-card"><img src="real madrid2.jpeg"><div class="product-title">Real Madrid 2</div><span class="product-price">$90.000</span><button class="btn-buy" onclick="sendToWA('Real Madrid 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="river.jpeg"><div class="product-title">River Plate</div><span class="product-price">$70.000</span><button class="btn-buy" onclick="sendToWA('River Plate')">COMPRAR</button></div>
+        <div class="product-card"><img src="river2.jpeg"><div class="product-title">River Plate 2</div><span class="product-price">$80.000</span><button class="btn-buy" onclick="sendToWA('River Plate 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="santa fe.jpeg"><div class="product-title">Santa Fe</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Santa Fe')">COMPRAR</button></div>
+        <div class="product-card"><img src="santa fe2.jpeg"><div class="product-title">Santa Fe 2</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Santa Fe 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="santa fe3.jpeg"><div class="product-title">Santa Fe 3</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Santa Fe 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="santa fe4.jpeg"><div class="product-title">Santa Fe 4</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Santa Fe 4')">COMPRAR</button></div>
+        <div class="product-card"><img src="santa fe5.jpeg"><div class="product-title">Santa Fe 5</div><span class="product-price">$127.000</span><button class="btn-buy" onclick="sendToWA('Santa Fe 5')">COMPRAR</button></div>
+    </div>
+</div>
+
+<div id="section-paises" style="display: none;">
+    <header><h2>SELECCIONES</h2></header>
+    <div class="catalog">
+        <div class="product-card"><img src="alemania.jpeg"><div class="product-title">Alemania</div><span class="product-price">$130.000</span><button class="btn-buy" onclick="sendToWA('Alemania')">COMPRAR</button></div>
+        <div class="product-card"><img src="argentina.jpeg"><div class="product-title">Argentina</div><span class="product-price">$130.000</span><button class="btn-buy" onclick="sendToWA('Argentina')">COMPRAR</button></div>
+        <div class="product-card"><img src="argentina2.jpeg"><div class="product-title">Argentina 2</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Argentina 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="brasil.jpeg"><div class="product-title">Brasil</div><span class="product-price">$130.000</span><button class="btn-buy" onclick="sendToWA('Brasil')">COMPRAR</button></div>
+        <div class="product-card"><img src="croacia.jpeg"><div class="product-title">Croacia</div><span class="product-price">$100.000</span><button class="btn-buy" onclick="sendToWA('Croacia')">COMPRAR</button></div>
+        <div class="product-card"><img src="españa.jpeg"><div class="product-title">España</div><span class="product-price">$125.000</span><button class="btn-buy" onclick="sendToWA('España')">COMPRAR</button></div>
+        <div class="product-card"><img src="francia.jpeg"><div class="product-title">Francia</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Francia')">COMPRAR</button></div>
+        <div class="product-card"><img src="francia2.jpeg"><div class="product-title">Francia 2</div><span class="product-price">$125.000</span><button class="btn-buy" onclick="sendToWA('Francia 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="inglaterra.jpeg"><div class="product-title">Inglaterra</div><span class="product-price">$100.000</span><button class="btn-buy" onclick="sendToWA('Inglaterra')">COMPRAR</button></div>
+        <div class="product-card"><img src="inglaterra2.jpeg"><div class="product-title">Inglaterra 2</div><span class="product-price">$130.000</span><button class="btn-buy" onclick="sendToWA('Inglaterra 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="inglaterra3.jpeg"><div class="product-title">Inglaterra 3</div><span class="product-price">$130.000</span><button class="btn-buy" onclick="sendToWA('Inglaterra 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="italia.jpeg"><div class="product-title">Italia</div><span class="product-price">$100.000</span><button class="btn-buy" onclick="sendToWA('Italia')">COMPRAR</button></div>
+        <div class="product-card"><img src="italia2.jpeg"><div class="product-title">Italia 2</div><span class="product-price">$100.000</span><button class="btn-buy" onclick="sendToWA('Italia 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="italia3.jpeg"><div class="product-title">Italia 3</div><span class="product-price">$130.000</span><button class="btn-buy" onclick="sendToWA('Italia 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="japon.jpeg"><div class="product-title">Japón</div><span class="product-price">$110.000</span><button class="btn-buy" onclick="sendToWA('Japón')">COMPRAR</button></div>
+        <div class="product-card"><img src="japon2.jpeg"><div class="product-title">Japón 2</div><span class="product-price">$110.000</span><button class="btn-buy" onclick="sendToWA('Japón 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="mexico.jpeg"><div class="product-title">México</div><span class="product-price">$115.000</span><button class="btn-buy" onclick="sendToWA('México')">COMPRAR</button></div>
+        <div class="product-card"><img src="portugal.jpeg"><div class="product-title">Portugal</div><span class="product-price">$130.000</span><button class="btn-buy" onclick="sendToWA('Portugal')">COMPRAR</button></div>
+    </div>
+</div>
+
+<div id="section-otros" style="display: none;">
+    <header><h2>OTROS PRODUCTOS</h2></header>
+    <div class="catalog">
+        <div class="product-card"><img src="buso argentina.jpeg"><div class="product-title">Buso Argentina</div><span class="product-price">$130.000</span><button class="btn-buy" onclick="sendToWA('Buso Argentina')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso atletico nacional.jpeg"><div class="product-title">Buso Atletico Nacional</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Buso Atletico Nacional')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso boca juniors.jpeg"><div class="product-title">Buso Boca Juniors</div><span class="product-price">$140.000</span><button class="btn-buy" onclick="sendToWA('Buso Boca Juniors')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso millonarios.jpeg"><div class="product-title">Buso Millonarios</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Buso Millonarios')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso millonarios2.jpeg"><div class="product-title">Buso Millonarios 2</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Buso Millonarios 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso millonarios3.jpeg"><div class="product-title">Buso Millonarios 3</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Buso Millonarios 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso millonarios4.jpeg"><div class="product-title">Buso Millonarios 4</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Buso Millonarios 4')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso millonarios5.jpeg"><div class="product-title">Buso Millonarios 5</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Buso Millonarios 5')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso millonarios6.jpeg"><div class="product-title">Buso Millonarios 6</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Buso Millonarios 6')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso millonarios7.jpeg"><div class="product-title">Buso Millonarios 7</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Buso Millonarios 7')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso santa fe.jpeg"><div class="product-title">Buso Santa Fe</div><span class="product-price">$150.000</span><button class="btn-buy" onclick="sendToWA('Buso Santa Fe')">COMPRAR</button></div>
+        <div class="product-card"><img src="buso santa fe2.jpeg"><div class="product-title">Buso Santa Fe 2</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Buso Santa Fe 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="chaqueta atletico nacional.jpeg"><div class="product-title">Chaqueta Atletico Nacional</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Chaqueta Atletico Nacional')">COMPRAR</button></div>
+        <div class="product-card"><img src="chaqueta atletico nacional2.jpeg"><div class="product-title">Chaqueta Atletico Nacional 2</div><span class="product-price">$140.000</span><button class="btn-buy" onclick="sendToWA('Chaqueta Atletico Nacional 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="chaqueta millonarios.jpeg"><div class="product-title">Chaqueta Millonarios</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Chaqueta Millonarios')">COMPRAR</button></div>
+        <div class="product-card"><img src="chaqueta millonarios2.jpeg"><div class="product-title">Chaqueta Millonarios 2</div><span class="product-price">$140.000</span><button class="btn-buy" onclick="sendToWA('Chaqueta Millonarios 2')">COMPRAR</button></div>
+        <div class="product-card"><img src="chaqueta millonarios3.jpeg"><div class="product-title">Chaqueta Millonarios 3</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Chaqueta Millonarios 3')">COMPRAR</button></div>
+        <div class="product-card"><img src="chaqueta millonarios4.jpeg"><div class="product-title">Chaqueta Millonarios 4</div><span class="product-price">$135.000</span><button class="btn-buy" onclick="sendToWA('Chaqueta Millonarios 4')">COMPRAR</button></div>
+        <div class="product-card"><img src="chaqueta santa fe.jpeg"><div class="product-title">Chaqueta Santa Fe</div><span class="product-price">$140.000</span><button class="btn-buy" onclick="sendToWA('Chaqueta Santa Fe')">COMPRAR</button></div>
+        <div class="product-card"><img src="impermeable millonarios.jpeg"><div class="product-title">Impermeable Millonarios</div><span class="product-price">$190.000</span><button class="btn-buy" onclick="sendToWA('Impermeable Millonarios')">COMPRAR</button></div>
+        <div class="product-card"><img src="pantalon millonarios.jpeg"><div class="product-title">Pantalon Millonarios</div><span class="product-price">$120.000</span><button class="btn-buy" onclick="sendToWA('Pantalon Millonarios')">COMPRAR</button></div>
+        <div class="product-card"><img src="sudadera atletico nacional.jpeg"><div class="product-title">Sudadera Atletico Nacional</div><span class="product-price">$180.000</span><button class="btn-buy" onclick="sendToWA('Sudadera Atletico Nacional')">COMPRAR</button></div>
+        <div class="product-card"><img src="sudadera millonarios.jpeg"><div class="product-title">Sudadera Millonarios</div><span class="product-price">$180.000</span><button class="btn-buy" onclick="sendToWA('Sudadera Millonarios')">COMPRAR</button></div>
+    </div>
+</div>
+
+<script>
+    function showCategory(cat) {
+        document.getElementById('section-clubes').style.display = 'none';
+        document.getElementById('section-paises').style.display = 'none';
+        document.getElementById('section-otros').style.display = 'none';
+        
+        const section = document.getElementById('section-' + cat);
+        section.style.display = 'block';
+        
+        window.scrollTo({
+            top: section.offsetTop - 50,
+            behavior: 'smooth'
+        });
+    }
+
+    function sendToWA(item) {
+        const numero = "573224269652";
+        const mensaje = encodeURIComponent(`¡Hola! Quiero comprar la camiseta de: ${item}.`);
+        window.open(`https://wa.me/${numero}?text=${mensaje}`);
+    }
+</script>
+
+</body>
+</html>
